@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/e/Vscode/Work/Project/CS205_Project2/else_pro
+CMAKE_SOURCE_DIR = /mnt/e/Vscode/Work/Project/CS205_Project2/Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/e/Vscode/Work/Project/CS205_Project2/else_pro
+CMAKE_BINARY_DIR = /mnt/e/Vscode/Work/Project/CS205_Project2/Project
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/Vscode/Work/Project/CS205_Project2/else_pro/CMakeFiles /mnt/e/Vscode/Work/Project/CS205_Project2/else_pro//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/Vscode/Work/Project/CS205_Project2/Project/CMakeFiles /mnt/e/Vscode/Work/Project/CS205_Project2/Project//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/Vscode/Work/Project/CS205_Project2/else_pro/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/Vscode/Work/Project/CS205_Project2/Project/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named a
+# Target rules for targets named cal
 
 # Build rule for target.
-a : cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 a
-.PHONY : a
+cal: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cal
+.PHONY : cal
 
 # fast build rule for target.
-a/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/build
-.PHONY : a/fast
+cal/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cal.dir/build.make CMakeFiles/cal.dir/build
+.PHONY : cal/fast
 
 src/Calculator.o: src/Calculator.cpp.o
 .PHONY : src/Calculator.o
 
 # target to build an object file
 src/Calculator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Calculator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cal.dir/build.make CMakeFiles/cal.dir/src/Calculator.cpp.o
 .PHONY : src/Calculator.cpp.o
 
 src/Calculator.i: src/Calculator.cpp.i
@@ -142,7 +142,7 @@ src/Calculator.i: src/Calculator.cpp.i
 
 # target to preprocess a source file
 src/Calculator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Calculator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cal.dir/build.make CMakeFiles/cal.dir/src/Calculator.cpp.i
 .PHONY : src/Calculator.cpp.i
 
 src/Calculator.s: src/Calculator.cpp.s
@@ -150,15 +150,39 @@ src/Calculator.s: src/Calculator.cpp.s
 
 # target to generate assembly for a file
 src/Calculator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Calculator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cal.dir/build.make CMakeFiles/cal.dir/src/Calculator.cpp.s
 .PHONY : src/Calculator.cpp.s
+
+src/compute.o: src/compute.cpp.o
+.PHONY : src/compute.o
+
+# target to build an object file
+src/compute.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cal.dir/build.make CMakeFiles/cal.dir/src/compute.cpp.o
+.PHONY : src/compute.cpp.o
+
+src/compute.i: src/compute.cpp.i
+.PHONY : src/compute.i
+
+# target to preprocess a source file
+src/compute.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cal.dir/build.make CMakeFiles/cal.dir/src/compute.cpp.i
+.PHONY : src/compute.cpp.i
+
+src/compute.s: src/compute.cpp.s
+.PHONY : src/compute.s
+
+# target to generate assembly for a file
+src/compute.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cal.dir/build.make CMakeFiles/cal.dir/src/compute.cpp.s
+.PHONY : src/compute.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cal.dir/build.make CMakeFiles/cal.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -166,7 +190,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cal.dir/build.make CMakeFiles/cal.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -174,7 +198,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cal.dir/build.make CMakeFiles/cal.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -185,10 +209,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... a"
+	@echo "... cal"
 	@echo "... src/Calculator.o"
 	@echo "... src/Calculator.i"
 	@echo "... src/Calculator.s"
+	@echo "... src/compute.o"
+	@echo "... src/compute.i"
+	@echo "... src/compute.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

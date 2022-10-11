@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/e/Vscode/Work/Project/CS205_Project2/else_pro
+# Install script for directory: /mnt/e/Vscode/Work/Project/CS205_Project2/Project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/e/Vscode/Work/Project/CS205_Project2/else_pro/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/e/Vscode/Work/Project/CS205_Project2/Project/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

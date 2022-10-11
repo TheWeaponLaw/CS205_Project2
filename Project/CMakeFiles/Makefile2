@@ -54,16 +54,16 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/e/Vscode/Work/Project/CS205_Project2/else_pro
+CMAKE_SOURCE_DIR = /mnt/e/Vscode/Work/Project/CS205_Project2/Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/e/Vscode/Work/Project/CS205_Project2/else_pro
+CMAKE_BINARY_DIR = /mnt/e/Vscode/Work/Project/CS205_Project2/Project
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/a.dir/all
+all: CMakeFiles/cal.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/a.dir/clean
+clean: CMakeFiles/cal.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/a.dir
+# Target rules for target CMakeFiles/cal.dir
 
 # All Build rule for target.
-CMakeFiles/a.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/e/Vscode/Work/Project/CS205_Project2/else_pro/CMakeFiles --progress-num=1,2,3 "Built target a"
-.PHONY : CMakeFiles/a.dir/all
+CMakeFiles/cal.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cal.dir/build.make CMakeFiles/cal.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cal.dir/build.make CMakeFiles/cal.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/e/Vscode/Work/Project/CS205_Project2/Project/CMakeFiles --progress-num=1,2,3,4 "Built target cal"
+.PHONY : CMakeFiles/cal.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/a.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/Vscode/Work/Project/CS205_Project2/else_pro/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/a.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/Vscode/Work/Project/CS205_Project2/else_pro/CMakeFiles 0
-.PHONY : CMakeFiles/a.dir/rule
+CMakeFiles/cal.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/Vscode/Work/Project/CS205_Project2/Project/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cal.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/Vscode/Work/Project/CS205_Project2/Project/CMakeFiles 0
+.PHONY : CMakeFiles/cal.dir/rule
 
 # Convenience name for target.
-a : CMakeFiles/a.dir/rule
-.PHONY : a
+cal: CMakeFiles/cal.dir/rule
+.PHONY : cal
 
 # clean rule for target.
-CMakeFiles/a.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/clean
-.PHONY : CMakeFiles/a.dir/clean
+CMakeFiles/cal.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cal.dir/build.make CMakeFiles/cal.dir/clean
+.PHONY : CMakeFiles/cal.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
