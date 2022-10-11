@@ -371,7 +371,7 @@ string divide(const string &sample1, const string &sample2)
     }
     char temp = 0;
     bool flag = false;
-    while (final_Dot_Div >= -30 && string1 != "0")
+    while (final_Dot_Div >= -15 && string1 != "0")
     {
         while (!compStr())
         {
@@ -388,7 +388,7 @@ string divide(const string &sample1, const string &sample2)
             final_Dot_Div--;
         }
     }
-    final_Dot_Div = final_Dot_Div == -31 ? -30 : final_Dot_Div;
+    final_Dot_Div = final_Dot_Div == -16 ? -15 : final_Dot_Div;
     string str;
     transform(result.begin(), result.end(), back_inserter(str), [](char c)
               { return c + '0'; });
@@ -472,6 +472,10 @@ string factorial(string sample1)
 {
     string temp = sample1;
     string result = "1";
+    if (temp == "0")
+    {
+        return "1";
+    }
     while (temp != "0")
     {
         result = mul(temp, result);
@@ -480,26 +484,46 @@ string factorial(string sample1)
     return result;
 }
 
+string purePower(string sample1, string sample2)
+{
+    string result = "1";
+    while (sample2 != "0")
+    {
+        result = mul(result, sample1);
+        sample2 = pureMinus(sample2, "1");
+    }
+    return result;
+}
+
 string power(string sample1, string sample2)
 {
     string result = "1";
-    if (sample2 == "0")
+    if (sample2.at(0) == '-')
     {
-        return sample1;
+        sample1 = divide("1", sample1);
+        sample2.erase(0, 1);
     }
-
-    while (sample2 != "0")
+    string intPart;
+    string doublePart;
+    intPart = judgeDou(sample2) == 0 ? sample2 : sample2.substr(0, sample2.size() - judgeDou(sample2) - 1);
+    doublePart = mod(sample2, "1");
+    if (sample1.at(0) == '-')
     {
-        if (sample2[0] != '-')
+        if (doublePart != "0" && mod(to_string(doublePart[doublePart.size() - 1]), "2") != "0")
         {
-            result = mul(result, sample1);
-            sample2 = pureMinus(sample2, "1");
+            throw "You can't do this power";
         }
-        else
-        {
-            result = divide(result, sample1);
-            sample2 = pureMinus("1", sample2);
-        }
+    }
+    if (doublePart != "0")
+    {
+        string pos = to_string(judgeDou(sample2));
+        sample2.erase(sample2.size() - judgeDou(sample2) - 1, 1);
+        clearFrontZero(sample2);
+        result = radical(purePower(sample1, sample2), purePower("10", pos));
+    }
+    else
+    {
+        result = purePower(sample1, sample2);
     }
     return result;
 }
@@ -558,11 +582,51 @@ string sqrt(string sample1)
     string x_next = sample1;
     string temp;
     string dif = "1";
-    while (comp(dif, "0.0001"))
+    while (comp(dif, "0.00001"))
     {
         temp = x_next;
         x_next = divide((pureAdd(x_next, divide(sample1, x_next))), "2");
         dif = pureMinus(temp, x_next);
+    }
+    if (judgeDou(x_next) >= 15)
+    {
+        if (x_next.at(x_next.size() - judgeDou(x_next) + 12) >= '5')
+        {
+            x_next = pureAdd(x_next, "0.0000001");
+            x_next = x_next.substr(0, x_next.size() - judgeDou(x_next) + 11);
+        }
+        else
+        {
+            x_next = x_next.substr(0, x_next.size() - judgeDou(x_next) + 11);
+        }
+    }
+    return x_next;
+}
+
+string radical(string sample1, string sample2)
+{
+    string x_next = sample1;
+    string temp;
+    string dif = "1";
+    while (comp(dif, "0.00001"))
+    {
+        temp = x_next;
+        x_next = divide((pureAdd(mul(x_next, pureMinus(sample2, "1")),
+                                 divide(sample1, power(x_next, pureMinus(sample2, "1"))))),
+                        sample2);
+        dif = pureMinus(temp, x_next);
+    }
+    if (judgeDou(x_next) >= 10)
+    {
+        if (x_next.at(x_next.size() - judgeDou(x_next) + 7) >= '5')
+        {
+            x_next = pureAdd(x_next, "1");
+            x_next = x_next.substr(0, x_next.size() - judgeDou(x_next) + 6);
+        }
+        else
+        {
+            x_next = x_next.substr(0, x_next.size() - judgeDou(x_next) + 6);
+        }
     }
     return x_next;
 }

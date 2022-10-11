@@ -13,8 +13,18 @@ int main()
         {
             return 0;
         }
-
-        calculator.calculator();
+        if (calculator.expression == "clear")
+        {
+            calculator.var.clear();
+        }
+        else if (calculator.expression.find("=") == string::npos)
+        {
+            cout << calculator.calculator() << endl;
+        }
+        else
+        {
+            calculator.genVar();
+        }
     }
     return 0;
 }
