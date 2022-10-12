@@ -116,7 +116,8 @@ void Calculator::format()
         }
     }
 }
-
+bool maxSignal = false;
+bool separateSignal = false;
 string Calculator::calculator()
 {
     clear();
@@ -252,6 +253,27 @@ string Calculator::calculator()
                         i += 3;
                     }
                 }
+                else if (expression[i] == 'm')
+                {
+                    if (expression.substr(i, 4) == "max(")
+                    {
+                        opeStack.push('(');
+                        opeStack.push('#');
+                        i += 3;
+                        maxSignal = true;
+                    }
+                }
+                else if (expression[i] == ',')
+                {
+                    if (maxSignal && !separateSignal)
+                    {
+                        separateSignal = true;
+                    }
+                    else
+                    {
+                        throw "Wrong expression!";
+                    }
+                }
                 else if ((expression[i] >= 'a' && expression[i] <= 'z') ||
                          (expression[i] >= 'A' && expression[i] <= 'Z'))
                 {
@@ -291,6 +313,7 @@ string Calculator::calculator()
             case '%':
             case '&':
             case '|':
+            case '#':
                 calNum();
                 opeStack.pop();
                 break;
@@ -481,6 +504,25 @@ void Calculator::calNum()
         {
             throw "Incorrect expression!";
         }
+        break;
+    case '#':
+        if (numStack.size() >= 2)
+        {
+            s2 = numStack.top();
+            numStack.pop();
+            s1 = numStack.top();
+            numStack.pop();
+            numStack.push(max(s1, s2));
+            separateSignal = false;
+            maxSignal = false;
+        }
+        else
+        {
+            throw "Incorrect expression!";
+        }
+        break;
+    default:
+        throw "Wrong expression!";
         break;
     }
 }

@@ -9,11 +9,11 @@ int main()
     while (true)
     {
         getline(cin, calculator.expression);
-        if (std::equal(calculator.expression.begin(), calculator.expression.end(), "\n"))
+        if (calculator.expression == "exit")
         {
             return 0;
         }
-        if (calculator.expression == "clear")
+        else if (calculator.expression == "clear")
         {
             calculator.var.clear();
         }

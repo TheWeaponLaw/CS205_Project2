@@ -550,6 +550,10 @@ bool comp(string sample1, string sample2)
     {
         return true;
     }
+    else if (((int_length2 > int_length1)) || ((int_length2 == int_length1) && (int2 > int1)))
+    {
+        return false;
+    }
     else if (dot1 == 0 || dot2 == 0)
     {
         if (dot2 == 0)
@@ -579,7 +583,7 @@ bool comp(string sample1, string sample2)
 
 string sqrt(string sample1)
 {
-    string x_next = sample1;
+    string x_next = divide(sample1, "2");
     string temp;
     string dif = "1";
     while (comp(dif, "0.00001"))
@@ -629,4 +633,28 @@ string radical(string sample1, string sample2)
         }
     }
     return x_next;
+}
+
+string max(string sample1, string sample2)
+{
+    if (sample1.at(0) == '-' && sample2.at(0) != '-')
+    {
+        return sample2;
+    }
+    else if (sample2.at(0) == '-' && sample1.at(0) != '-')
+    {
+        return sample1;
+    }
+    else
+    {
+        if (comp(sample1, sample2))
+        {
+            return sample1;
+        }
+        else
+        {
+            return sample2;
+        }
+        return sample1;
+    }
 }
