@@ -1,3 +1,0 @@
-/mnt/e/Vscode/Work/Project/CS205_Project2/Project/CMakeFiles/cal.dir
-/mnt/e/Vscode/Work/Project/CS205_Project2/Project/CMakeFiles/edit_cache.dir
-/mnt/e/Vscode/Work/Project/CS205_Project2/Project/CMakeFiles/rebuild_cache.dir

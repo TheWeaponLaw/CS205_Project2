@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/cal.dir/src/Calculator.cpp.o CMakeFiles/cal.dir/src/compute.cpp.o CMakeFiles/cal.dir/src/main.cpp.o -o cal 
