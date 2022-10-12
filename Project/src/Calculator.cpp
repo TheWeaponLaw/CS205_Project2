@@ -4,7 +4,6 @@
 
 #include "../include/Calculator.h"
 #include <iostream>
-#include <cmath>
 
 using namespace std;
 enum

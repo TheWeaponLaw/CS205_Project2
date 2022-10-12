@@ -1,8 +1,7 @@
+#include "../include/Calculator.h"
+#include <algorithm>
 #include <utility>
 #include <vector>
-#include <cstring>
-#include <algorithm>
-#include "../include/Calculator.h"
 
 int finalDot = 0;
 string string1;
@@ -514,12 +513,13 @@ string power(string sample1, string sample2)
             throw "You can't do this power";
         }
     }
+    string temp = "1";
     if (doublePart != "0")
     {
-        string pos = to_string(judgeDou(sample2));
-        sample2.erase(sample2.size() - judgeDou(sample2) - 1, 1);
-        clearFrontZero(sample2);
-        result = radical(purePower(sample1, sample2), purePower("10", pos));
+        int pos = judgeDou(sample2);
+        doublePart.erase(sample2.size() - judgeDou(sample2) - 1, 1);
+        doublePart = clearFrontZero(doublePart);
+        result = mul(purePower(sample1, intPart), radical(purePower(sample1, doublePart), temp.append(pos, '0')));
     }
     else
     {
@@ -605,7 +605,7 @@ string sqrt(string sample1)
 
 string radical(string sample1, string sample2)
 {
-    string x_next = sample1;
+    string x_next = "20";
     string temp;
     string dif = "1";
     while (comp(dif, "0.00001"))
@@ -616,16 +616,16 @@ string radical(string sample1, string sample2)
                         sample2);
         dif = pureMinus(temp, x_next);
     }
-    if (judgeDou(x_next) >= 10)
+    if (judgeDou(x_next) >= 15)
     {
-        if (x_next.at(x_next.size() - judgeDou(x_next) + 7) >= '5')
+        if (x_next.at(x_next.size() - judgeDou(x_next) + 12) >= '5')
         {
-            x_next = pureAdd(x_next, "1");
-            x_next = x_next.substr(0, x_next.size() - judgeDou(x_next) + 6);
+            x_next = pureAdd(x_next, "0.000000000001");
+            x_next = x_next.substr(0, x_next.size() - judgeDou(x_next) + 11);
         }
         else
         {
-            x_next = x_next.substr(0, x_next.size() - judgeDou(x_next) + 6);
+            x_next = x_next.substr(0, x_next.size() - judgeDou(x_next) + 11);
         }
     }
     return x_next;
