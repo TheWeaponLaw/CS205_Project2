@@ -1,3 +1,9 @@
 #忽略文件夹
 .vscode
 *.o
+cal
+*.cmake
+CMakeCache.txt
+Makefile
+report_tmp.html
+./Project/CMakeFiles

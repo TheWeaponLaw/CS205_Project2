@@ -322,6 +322,10 @@ string Calculator::calculator()
             case '}':
                 opeStack.pop();
                 break;
+
+            default:
+                opeStack.pop();
+                break;
             }
         }
         if (!numStack.empty())
