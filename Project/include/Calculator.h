@@ -21,15 +21,15 @@ public:
     unordered_map<string, string> var; //记录变量的Hashmap,记录变量名称和数值
 };
 
-string mul(const string &sample1, const string &sample2);
-bool judgeInt(string sample);
-int judgeDou(string sample);
-string pureAdd(string sample1, string sample2);
-string pureMinus(string sample1, string sample2);
-string divide(const string &sample1, const string &sample2);
-string mod(string sample1, string sample2);
-string factorial(string sample1);
-string power(string sample1, string sample2);
-string sqrt(string sample1);
-string radical(string sample1, string sample2);
-string max(string sample1, string sample2);
+string mul(const string &sample1, const string &sample2); //乘法
+bool judgeInt(string sample);                             //判断是否为整型
+int judgeDou(string sample);                              //判断是否为浮点型
+string pureAdd(string sample1, string sample2);           //纯加法
+string pureMinus(string sample1, string sample2);         //纯减法
+string divide(string sample1, string sample2);            //除法
+string mod(string sample1, string sample2);               //取余
+string factorial(string sample1);                         //阶乘
+string power(string sample1, string sample2);             //幂
+string sqrt(string sample1);                              //平方根
+string radical(string sample1, string sample2);           //根号
+string max(string sample1, string sample2);               //最大值

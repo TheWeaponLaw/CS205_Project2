@@ -346,7 +346,7 @@ string pureMinus(string sample1, string sample2)
     return string1;
 }
 
-string divide(const string &sample1, const string &sample2)
+string divide(string sample1, string sample2)
 {
     int final_Dot_Div = 0;
     bool sign1 = true;
@@ -683,3 +683,15 @@ string max(string sample1, string sample2)
         return sample1;
     }
 }
+
+// string sqrtMul(string sample1, string binary_code)
+// {
+//     string result;
+//     string sqrtSer;
+//     for (size_t i = 0; i < binary_code; i++)
+//     {
+//         if (binary_code[i] - '0'){
+
+//         }
+//     }
+// }
