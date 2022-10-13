@@ -383,7 +383,14 @@ string divide(const string &sample1, const string &sample2)
         temp = 0;
         if (string1.size() && string1 != "0")
         {
-            string1.append("0");
+            if (string2.at(string2.size() - 1) == '0')
+            {
+                string2.erase(string2.size() - 1, 1);
+            }
+            else
+            {
+                string1.append("0");
+            }
             final_Dot_Div--;
         }
     }
@@ -612,6 +619,20 @@ string radical(string sample1, string sample2)
     string x_next = "20";
     string temp;
     string dif = "1";
+    bool sign = true;
+    clearBackZero(sample2);
+    if (judgeDou(sample2))
+    {
+        throw "Incorrect expression!";
+    }
+    if (sample1.at(0) == '-' && mod(sample2, "2") == "0")
+    {
+        throw "Incorrect expression!";
+    }
+    else if (sample1.at(0) == '-')
+    {
+        sign = false;
+    }
     while (comp(dif, "0.00001"))
     {
         temp = x_next;
@@ -624,13 +645,17 @@ string radical(string sample1, string sample2)
     {
         if (x_next.at(x_next.size() - judgeDou(x_next) + 12) >= '5')
         {
-            x_next = pureAdd(x_next, "0.000000000001");
+            x_next = pureAdd(x_next, "0.000001");
             x_next = x_next.substr(0, x_next.size() - judgeDou(x_next) + 11);
         }
         else
         {
             x_next = x_next.substr(0, x_next.size() - judgeDou(x_next) + 11);
         }
+    }
+    if (!sign)
+    {
+        x_next.insert(0, "-");
     }
     return x_next;
 }
@@ -658,4 +683,3 @@ string max(string sample1, string sample2)
         return sample1;
     }
 }
-//要测试

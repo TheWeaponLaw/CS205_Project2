@@ -75,7 +75,7 @@ void Calculator::genVar()
     {
         num = temp.substr(temp.find('=') + 1, temp.size() - temp.find('='));
     }
-    if (judge(name) && name != "sqrt" && name != "abs")
+    if (judge(name) && name != "sqrt" && name != "abs" && name != "max" && name != "rad")
     {
         expression = num;
         num = calculator();
@@ -117,6 +117,7 @@ void Calculator::format()
     }
 }
 bool maxSignal = false;
+bool radSignal = false;
 bool separateSignal = false;
 string Calculator::calculator()
 {
@@ -263,9 +264,19 @@ string Calculator::calculator()
                         maxSignal = true;
                     }
                 }
+                else if (expression[i] == 'r')
+                {
+                    if (expression.substr(i, 4) == "rad(")
+                    {
+                        opeStack.push('(');
+                        opeStack.push('$');
+                        i += 3;
+                        radSignal = true;
+                    }
+                }
                 else if (expression[i] == ',')
                 {
-                    if (maxSignal && !separateSignal)
+                    if ((maxSignal || radSignal) && !separateSignal)
                     {
                         separateSignal = true;
                     }
@@ -314,6 +325,7 @@ string Calculator::calculator()
             case '&':
             case '|':
             case '#':
+            case '$':
                 calNum();
                 opeStack.pop();
                 break;
@@ -519,6 +531,22 @@ void Calculator::calNum()
             numStack.push(max(s1, s2));
             separateSignal = false;
             maxSignal = false;
+        }
+        else
+        {
+            throw "Incorrect expression!";
+        }
+        break;
+    case '$':
+        if (numStack.size() >= 2)
+        {
+            s2 = numStack.top();
+            numStack.pop();
+            s1 = numStack.top();
+            numStack.pop();
+            numStack.push(radical(s1, s2));
+            separateSignal = false;
+            radSignal = false;
         }
         else
         {
