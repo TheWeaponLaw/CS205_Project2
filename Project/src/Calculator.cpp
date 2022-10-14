@@ -25,6 +25,8 @@ int Calculator::opeLevel(char ope)
     case '{':
     case '&':
     case '|':
+    case '$':
+    case '#':
         return Level_1;
     case '+':
     case '-':
@@ -98,7 +100,6 @@ void Calculator::genVar()
     }
 }
 
-//表达式支持 + - * / % ! ^ () [] {} sqrt() abs()数字
 void Calculator::format()
 {
     for (size_t i = 0; i < expression.size(); i++)
@@ -119,8 +120,10 @@ void Calculator::format()
 bool maxSignal = false;
 bool radSignal = false;
 bool separateSignal = false;
+//表达式支持 + - * / % ! ^ () [] {} sqrt() abs() max() rad() 数字
 string Calculator::calculator()
 {
+
     clear();
     format();
     try
