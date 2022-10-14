@@ -282,6 +282,11 @@ string Calculator::calculator()
                     if ((maxSignal || radSignal) && !separateSignal)
                     {
                         separateSignal = true;
+                        while (opeStack.top() != '$' && opeStack.top() != '#')
+                        {
+                            calNum();
+                            opeStack.pop();
+                        }
                     }
                     else
                     {
