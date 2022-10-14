@@ -621,7 +621,7 @@ string radical(string sample1, string sample2)
     string dif = "1";
     bool sign = true;
     clearBackZero(sample2);
-    if (judgeDou(sample2))
+    if (judgeDou(sample2) || sample2 == "0" || sample2.at(0) == '-')
     {
         throw "Incorrect expression!";
     }

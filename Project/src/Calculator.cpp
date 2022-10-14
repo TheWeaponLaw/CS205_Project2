@@ -282,6 +282,7 @@ string Calculator::calculator()
                     if ((maxSignal || radSignal) && !separateSignal)
                     {
                         separateSignal = true;
+                        //解决代码
                         while (opeStack.top() != '$' && opeStack.top() != '#')
                         {
                             calNum();
