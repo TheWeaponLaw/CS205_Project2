@@ -354,13 +354,15 @@ string divide(string sample1, string sample2)
     bool *p1 = &sign1;
     bool *p2 = &sign2;
     sim = false;
+    sample1 = clearBackZero(sample1);
+    sample2 = clearBackZero(sample2);
     dealString(sample1, sample2, p1, p2);
     final_Dot_Div += judgeDou(sample2) - judgeDou(sample1);
     string1 = clearFrontZero(string1);
     string2 = clearFrontZero(string2);
     final_Dot_Div += string1.size() - string2.size();
     vector<char> result;
-    if (!compStr()) //判断string1和string2处理完后的长度，先算string1>string2;
+    if (!compStr()) //判断string1和string2处理完后的长度;
     {
         string2.append(string1.size() - string2.size(), '0');
     }
