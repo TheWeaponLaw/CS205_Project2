@@ -6,6 +6,7 @@ using namespace std;
 int main()
 {
     Calculator calculator;
+    cout << "The calculate can support +-*/%^! abs(),sqrt,rad(),max() and variables(composed by 26 letters)" << endl;
     while (true)
     {
         getline(cin, calculator.expression);

@@ -58,11 +58,14 @@ string clearFrontZero(string sample1)
     return sample1;
 }
 
-int judgeDou(string sample) //找到double的点的位置
+int judgeDou(string sample)
 {
     for (int i = 0; i < (int)sample.size(); i++)
     {
-        if (sample.at(i) == '.')
+        if (sample.at(i) == '.' && i != 0 && i != (int)sample.size() - 1 &&
+            judgeInt(sample.substr(0, i)) &&
+            judgeInt(sample.substr(i + 1, sample.size())) &&
+            sample.at(i + 1) != '+' && sample.at(i + 1) != '-')
         {
             return sample.size() - i - 1; //从后往前数小数点的位置
         }
